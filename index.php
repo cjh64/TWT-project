@@ -1,3 +1,13 @@
+<?php
+// Start the session
+session_start();
+
+// Check if the user is logged in
+if (!isset($_SESSION['username'])) {
+    header("Location: login.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,12 +75,11 @@
         }
 
         .sidebar a {
-            display: block;
             color: #ddd;
             padding: 10px;
             text-decoration: none;
             border-radius: 4px;
-            text-align: center; 
+            text-align: left; 
         }
 
         .sidebar a:hover {

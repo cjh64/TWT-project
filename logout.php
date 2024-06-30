@@ -1,8 +1,10 @@
 <?php
 	session_start();
 	//destroying all session
-	if(session_destroy()){
-		header("Location: login.php");
-		//redirect ke main page
-		}
-	?>
+	
+	$_SESSION = array();
+	session_destroy();// Destroying All Sessions
+	{
+		header("Location: login.php"); // Redirecting To Home Page
+	}
+?>

@@ -22,7 +22,7 @@
 		if(mysqli_num_rows($result)>0)
 		{
 		// get the name and the primary key(username)
-		$_SESSION['username'] = $row['username'];//simpan data session
+		$_SESSION['username'] = $row['username'];//keep session data 
             $name= $row['name'];
 		
 		//popup msg if success
