@@ -8,7 +8,7 @@
 	//check if there are any same name created
 	$check  = "SELECT username FROM user
 			   WHERE username = '$username'";
-	$result = mysqli_query($conn, $check) or die(mysql_error());
+	$results = mysqli_query($conn, $check) or die(mysql_error());
 
 	//if exists, js popup msg
 	if (mysqli_num_rows($results)>0)
