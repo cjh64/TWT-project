@@ -23,6 +23,17 @@
 	table,td{
 		text-align: right;
 	}
+    td input[type="text"],
+    td input[type="password"] {
+    width: 70%; 
+    padding: 5px;
+    transition: width 0.4s ease-in-out;
+    }
+
+    td input[type="text"]:focus,
+    td input[type="password"]:focus {
+    width: 100%;
+    }
 	</style>
 	</head>
 	<body>

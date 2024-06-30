@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>Create A New Account</title>
 <style>
 body {
     background-color: aqua;
@@ -30,11 +31,11 @@ table, td {
     
 }
 td input[type="text"],
-td input[type="password"] {
-    width: 110%; 
+td input[type="password"]{
+    width: 100%; 
     padding: 10px;
+    border: 3px solid #5555;
 }
-
 td input[type="submit"] {
     width: 50%; 
     padding: 10px;
@@ -50,6 +51,7 @@ td input[type="submit"] {
     color: white;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
+
 </style>
 </head>
 <body>
