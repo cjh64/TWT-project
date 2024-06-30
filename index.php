@@ -48,10 +48,20 @@
             color: #fff;
             padding: 15px;
             height: 100%;
+            text-align: center; 
         }
 
         .sidebar h2 {
             color: #f2f2f2;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 50%;
         }
 
         .sidebar a {
@@ -60,7 +70,7 @@
             padding: 10px;
             text-decoration: none;
             border-radius: 4px;
-            margin-bottom: 10px;
+            text-align: center; 
         }
 
         .sidebar a:hover {
@@ -106,7 +116,7 @@ include ("topnav.php");
         <div class="sidebar">
             <h2>Filter by Category</h2>
             <ul class="category-list">
-                <li><a href="index.php">All</a></li>
+                <li><a href="index.php">All Category</a></li>
                 <li><a href="index.php?category=<?php echo urlencode('SUPPLEMENT & NUTRITION'); ?>">SUPPLEMENT & NUTRITION</a></li>
                 <li><a href="index.php?category=<?php echo urlencode('VITAMIN & MINERAL'); ?>">VITAMIN & MINERAL</a></li>
                 <li><a href="index.php?category=<?php echo urlencode('HEALTH | ORGANIC FOODS & DRINKS'); ?>">HEALTH | ORGANIC FOODS & DRINKS</a></li>

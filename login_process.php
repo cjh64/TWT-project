@@ -7,7 +7,7 @@
 	
 	//get the data from login page
 	$username =$_POST['username'];
-	$password = ($_POST['password']);//encrypt the password with md5
+	$password = md5($_POST['password']);//encrypt the password with md5
 	
 	//if they clicked on the button,
 	if (isset($_POST['loginBtn']))

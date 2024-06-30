@@ -41,9 +41,9 @@
 	<body>
 	
 	<ul>
-		<li><a href="#">Main Menu</a></li>     
-		<li><a href="index.php">Inventory</a></li>
-		<li><a href="#">Create New Account</a></li>
+		<li><a href="index.php">Main Menu</a></li>     
+		<li><a href="inventory.php">Inventory</a></li>
+		<li><a href="signup.php">Create New Account</a></li>
         <li style= "float:right"><a href="logout.php">Logout</a></li>
 	</ul>
 	

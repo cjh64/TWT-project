@@ -50,7 +50,7 @@
 <tr>
 		<td></td>
 		<td>Username:</td>
-		<td><input type="text" name="username" required></td>
+		<td><input type="text" name="username" required pattern="[A-Za-z0-9]" title="Please enter only numbers or alphabet!"></td>
 		<td></td>
 </tr>
 <tr>
