@@ -1,4 +1,4 @@
-	<html>
+<html>
 	<head>
     <title>Login</title>
 	<style>
@@ -61,7 +61,7 @@
 <tr>
 		<td></td>
 		<td>Username:</td>
-		<td><input type="text" name="username" required pattern="[A-Za-z0-9]" title="Please enter only numbers or alphabet!"></td>
+		<td><input type="text" name="username" placeholder="Enter a new username" pattern="[A-Za-z0-9]+" title="Please enter alphabet or numbers only!" required></td
 		<td></td>
 </tr>
 <tr>
