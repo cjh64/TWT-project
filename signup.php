@@ -73,8 +73,14 @@ include("topnav.php");
         </tr>
         <tr>
             <td></td>
-            <td>Name :</td>
+            <td>Username :</td>
             <td><input type="text" name="username" placeholder="Enter a new username" required></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Name :</td>
+            <td><input type="text" name="name" placeholder="Enter Your Name" required></td>
             <td></td>
         </tr>
         <tr>

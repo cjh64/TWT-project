@@ -1,38 +1,47 @@
 <?php
-	include ('db_config.php');
+include('db_config.php');
 
-	$username   = $_POST['username'];
-	$password   = md5($_POST['password']);
+// Get data from the signup form
+$username = $_POST['username'];
+$name = $_POST['name'];
+$password = md5($_POST['password']);
+$confirmpassword = md5($_POST['confirmpassword']); // Assuming you have a field named confirm_password in your form
 
+// Check if passwords match
+if ($password !== $confirmpassword) {
+    echo '<script>
+        alert("Passwords do not match, please try again.");
+        window.location.href = "signup.php";
+    </script>';
+    exit; // Stop execution if passwords don't match
+}
 
-	//check if there are any same name created
-	$check  = "SELECT username FROM user
-			   WHERE username = '$username'";
-	$results = mysqli_query($conn, $check) or die(mysql_error());
+// Check if the username already exists
+$check = "SELECT username FROM user WHERE username = '$username'";
+$results = mysqli_query($conn, $check);
 
-	//if exists, js popup msg
-	if (mysqli_num_rows($results)>0)
-	{
-		echo'<script>
-			alert("This username already been used, please try again with other username");
-			window.location.href="signup.php";</script>';
-	}else{
-		//if not exist, pop out
-		$mysql = "INSERT INTO user
-				  (username,password)
-				   VALUES('$username','$password)";
-				   
-		if(mysqli_query($conn,$mysql)){
-		//papar js popup msg jika pengguna berjaya daftar
-		echo '<script>
-			  alert("New Account Registered Successfully!");
-			  window.location.href= "login.php";</script>';
-			  //return to login page
-		}else  {
-			echo "Error;" .mysqli_error($conn);
-		}
-	}
-	// Close connection
-	mysqli_close($conn);
-	?>
-	
+if (mysqli_num_rows($results) > 0) {
+    // Username already exists
+    echo '<script>
+        alert("This username is already in use, please try another one.");
+        window.location.href = "signup.php";
+    </script>';
+} else {
+    // Username is unique, proceed with insertion
+    $insertSql = "INSERT INTO user (username, name, password) VALUES ('$username', '$name', '$password')";
+
+    if (mysqli_query($conn, $insertSql)) {
+        // Successful registration
+        echo '<script>
+            alert("New account registered successfully!");
+            window.location.href = "login.php";
+        </script>';
+    } else {
+        // Error in insertion
+        echo "Error: " . mysqli_error($conn);
+    }
+}
+
+// Close database connection
+mysqli_close($conn);
+?>
