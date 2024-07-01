@@ -97,15 +97,6 @@ if (!isset($_SESSION['username'])) {
             background-color: #0056b3;
         }
 
-        footer {
-            background-color: black;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
 
         .clock {
             font-size: 18px;
@@ -162,9 +153,9 @@ if (!isset($_SESSION['username'])) {
         </div>
     </div>
 
-    <footer>
-        <p>&copy; Pharmacy Inventory Management System</p>
-    </footer>
+    <?php 
+    include ("footer.php");
+    ?>
 </body>
 
 </html>
