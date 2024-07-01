@@ -4,8 +4,9 @@
 ?>
 <html>
 	<head>
+	
 	<style>
-	ul {
+	/* ul {
 		list-style-type: none;
 		margin: 0;
 		padding: 0;
@@ -31,9 +32,9 @@
 			color: black;
 		}
 		
-		/* Respensive layout - when the screen is less than 400px wide,
+		Respensive layout - when the screen is less than 400px wide,
 		   make the mavigation links stack on top of each others
-		   instead of next to each others */
+		   instead of next to each others
 		 @media screen and (max-width: 400px){
 			   .topnav a {
 				   float: none;
@@ -62,7 +63,7 @@
 		li.dropdown{
 			display: inline-block;
 			float:right;
-		}
+		} */
 
 		.dropdown-content {
 			display: none;
@@ -89,23 +90,50 @@
 		{
 			display:block;
 		}
+
+		header {
+            background-color: black;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
 	</style>
 	</head>
 	<body>
 	
-	<ul>
-		<li><a href="index.php">Main Menu</a></li>     
-		<li><a href="inventory.php">Inventory</a></li>
-		<li><a href="signup.php">Create New Account</a></li>
-		<li class="dropdown"><a href="#" class= "dropbtn">Hi, <?php echo $name;?></a>
-		<div class="dropdown-content">
-			<a href="#">Edit Profile</a>
-    		<a href="#">Change Password</a>
-    		<a href="logout.php">Logout</a>
-		<li>
-	</ul>
+	<header>
+        <h1>Pharmacy Inventory System</h1>
+        <div class="menubar">
+            <div class="left">
+                <a href="index.php">Main Menu</a>
+                <a href="inventory.php">View Inventory</a>
+                <a href="contact_us.php">Contact Us</a>
+            </div>
+            <div class="right">
+                <div id="clock" class="clock"></div>
+                <a href="logout.php">Logout</a>
+            </div>
+        </div>
+    </header>
 	
 	</body>
+
+	<script>
+        function updateClock() {
+            var now = new Date();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
+            var ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12; // the hour '0' should be '12'
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+            var strTime = hours + ':' + minutes + ':' + seconds + ' ' + ampm;
+            document.getElementById('clock').innerHTML = strTime;
+        }
+        setInterval(updateClock, 1000);
+    </script>
 	</html>
 	
 		
