@@ -79,7 +79,7 @@
 <tr>
 	<td></td>
 	<td></td>
-	<td><a href="register_form.php">Register</a></td>
+	<td></td>
 	<td></td>
 </tr>
 <tr>
