@@ -1,22 +1,24 @@
+
 <html>
-<head>
-<style>
-#footer {
-    background-color: black;
+<header></header>
+    <style>
+
+    footer{
+            background-color: black;
             color: white;
             text-align: center;
             padding: 10px 0;
             position: fixed;
             bottom: 0;
             width: 100%;
-	}
-</style>
-</head>
-<body>
+        }
+    </style>
 
-<div id="footer">
-<p>&copy; Pharmacy Inventory Management System</p>
-	</div>
-	
-	</html>
-	</body>
+    <body>
+<footer>
+        <p>&copy; Pharmacy Inventory Management System</p>
+    </footer>
+
+    </body>
+
+    </html>
