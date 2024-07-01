@@ -126,11 +126,11 @@ include ("topnav.php");
         <div class="sidebar">
             <h2>Filter by Category</h2>
             <ul class="category-list">
-                <li><a href="index.php">All Category</a></li>
-                <li><a href="index.php?category=<?php echo urlencode('SUPPLEMENT & NUTRITION'); ?>">SUPPLEMENT & NUTRITION</a></li>
-                <li><a href="index.php?category=<?php echo urlencode('VITAMIN & MINERAL'); ?>">VITAMIN & MINERAL</a></li>
-                <li><a href="index.php?category=<?php echo urlencode('HEALTH | ORGANIC FOODS & DRINKS'); ?>">HEALTH | ORGANIC FOODS & DRINKS</a></li>
-                <li><a href="index.php?category=<?php echo urlencode('MOTHER & BABY CARE'); ?>">MOTHER & BABY CARE</a></li>
+                <li><a href="inventory.php">All Category</a></li>
+                <li><a href="inventory.php?category=<?php echo urlencode('SUPPLEMENT & NUTRITION'); ?>">SUPPLEMENT & NUTRITION</a></li>
+                <li><a href="inventory.php?category=<?php echo urlencode('VITAMIN & MINERAL'); ?>">VITAMIN & MINERAL</a></li>
+                <li><a href="inventory.php?category=<?php echo urlencode('HEALTH | ORGANIC FOODS & DRINKS'); ?>">HEALTH | ORGANIC FOODS & DRINKS</a></li>
+                <li><a href="inventory.php?category=<?php echo urlencode('MOTHER & BABY CARE'); ?>">MOTHER & BABY CARE</a></li>
             </ul>
         </div>
 
