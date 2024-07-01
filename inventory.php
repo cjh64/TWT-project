@@ -11,11 +11,14 @@ if (!isset($_SESSION['username'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<?php 
+include ("topnav.php");
+?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pharmacy Inventory Management System</title>
     <style>
-        body {
+       body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             margin: 0;
@@ -25,31 +28,11 @@ if (!isset($_SESSION['username'])) {
             min-height: 100vh;
         }
 
-        .header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-            display: flex;
-            justify-content: flex-start;
-        }
-
-        .header a {
-            color: #fff;
-            padding: 10px;
-            text-decoration: none;
-            border-radius: 4px;
-            margin-right: 10px;
-            transition: background-color 0.3s;
-        }
-
-        .header a:hover {
-            background-color: #575757;
-        }
-
         .container {
             display: flex;
             flex: 1;
             padding: 20px;
+            height: 100%;
         }
 
         .sidebar {
@@ -57,7 +40,7 @@ if (!isset($_SESSION['username'])) {
             background-color: #333;
             color: #fff;
             padding: 15px;
-            height: 100%;
+            height: 500%;
             text-align: center; 
         }
 
@@ -71,7 +54,7 @@ if (!isset($_SESSION['username'])) {
         }
 
         .sidebar li {
-            margin-bottom: 50%;
+            margin-bottom: 100px;
         }
 
         .sidebar a {
@@ -80,7 +63,7 @@ if (!isset($_SESSION['username'])) {
             padding: 10px;
             text-decoration: none;
             border-radius: 4px;
-            text-align: left; 
+            text-align: center; 
         }
 
         .sidebar a:hover {
@@ -95,7 +78,22 @@ if (!isset($_SESSION['username'])) {
 
         h1 {
             text-align: center;
-            color: #333;
+        }
+
+        .search-bar {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .search-bar input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .search-bar input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
         }
 
         table {
@@ -116,12 +114,15 @@ if (!isset($_SESSION['username'])) {
         th {
             background-color: #f2f2f2;
         }
+
+        .delete-icon {
+            color: red;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-<?php 
-include ("topnav.php");
-?>
+
     <div class="container">
         <div class="sidebar">
             <h2>Filter by Category</h2>
@@ -131,11 +132,25 @@ include ("topnav.php");
                 <li><a href="inventory.php?category=<?php echo urlencode('VITAMIN & MINERAL'); ?>">VITAMIN & MINERAL</a></li>
                 <li><a href="inventory.php?category=<?php echo urlencode('HEALTH | ORGANIC FOODS & DRINKS'); ?>">HEALTH | ORGANIC FOODS & DRINKS</a></li>
                 <li><a href="inventory.php?category=<?php echo urlencode('MOTHER & BABY CARE'); ?>">MOTHER & BABY CARE</a></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
             </ul>
         </div>
 
         <div class="content">
             <h1>Current Medicine Inventory</h1>
+
+            <div class="search-bar">
+                <form method="GET" action="inventory.php">
+                    <input type="text" name="search" placeholder="Search for medicine...">
+                    <input type="submit" value="Search">
+                </form>
+            </div>
+
             <table>
                 <thead>
                     <tr>
@@ -144,6 +159,7 @@ include ("topnav.php");
                         <th>Category</th>
                         <th>Quantity</th>
                         <th>Expiry Date</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -160,6 +176,13 @@ include ("topnav.php");
                         $sql .= " WHERE category = '{$category}'";
                     }
 
+                    // Check if search query is set
+                    if (!empty($_GET['search'])) {
+                        $search = $conn->real_escape_string($_GET['search']);
+                        $sql .= !empty($_GET['category']) ? " AND" : " WHERE";
+                        $sql .= " (name LIKE '%{$search}%' OR category LIKE '%{$search}%')";
+                    }
+
                     // Execute query
                     $result = $conn->query($sql);
 
@@ -172,10 +195,11 @@ include ("topnav.php");
                             echo "<td>".$row["category"]."</td>";
                             echo "<td>".$row["quantity"]."</td>";
                             echo "<td>".$row["expiry_date"]."</td>";
+                            echo "<td><a href='deleteprocess.php?id=".$row["id"]."'><span class='delete-icon'>&#10060;</span>Delete</a></td>";
                             echo "</tr>";
                         }
                     } else {
-                        echo "<tr><td colspan='5'>No records found</td></tr>";
+                        echo "<tr><td colspan='6'>No records found</td></tr>";
                     }
 
                     // Close connection
@@ -185,5 +209,10 @@ include ("topnav.php");
             </table>
         </div>
     </div>
+
+    <?php 
+    include ("footer.php");
+    ?>
+
 </body>
 </html>
