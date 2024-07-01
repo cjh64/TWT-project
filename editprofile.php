@@ -96,7 +96,7 @@ mysqli_close($conn);
         <?php if (isset($_SESSION['success_message'])): ?>
             alert("<?php echo $_SESSION['success_message']; ?>");
             <?php unset($_SESSION['success_message']); ?>
-            window.location.href = "index.php";
+            window.location.href = "editprofile.php";
         <?php endif; ?>
     }
     </script>
