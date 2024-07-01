@@ -1,6 +1,5 @@
 <?php
 include('db_config.php');
-
 // Get data from the signup form
 $username = $_POST['username'];
 $name = $_POST['name'];

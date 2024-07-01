@@ -80,7 +80,7 @@ if (!isset($_SESSION['username'])) {
             padding: 10px;
             text-decoration: none;
             border-radius: 4px;
-            text-align: center; 
+            text-align: left; 
         }
 
         .sidebar a:hover {

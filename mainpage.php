@@ -9,10 +9,11 @@ if (!isset($_SESSION['username'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main Menu</title>
+    <title><mainpage></mainpage>/title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -34,19 +35,12 @@ if (!isset($_SESSION['username'])) {
             font-size: 18px;
             padding: 10px 20px;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        .menubar .left,
-        .menubar .right {
-            display: flex;
-            align-items: center;
-        }
-
-        .menubar .left a,
-        .menubar .right a {
+        .menubar a {
             color: #333;
             text-decoration: none;
             padding: 10px 15px;
@@ -55,8 +49,7 @@ if (!isset($_SESSION['username'])) {
             margin: 0 5px;
         }
 
-        .menubar .left a:hover,
-        .menubar .right a:hover {
+        .menubar a:hover {
             background-color: whitesmoke;
             color: black;
         }
@@ -108,6 +101,7 @@ if (!isset($_SESSION['username'])) {
         }
 
         .clock {
+            margin-left: 20px;
             font-size: 18px;
         }
 
@@ -139,15 +133,11 @@ if (!isset($_SESSION['username'])) {
     <header>
         <h1>Pharmacy Inventory System</h1>
         <div class="menubar">
-            <div class="left">
-                <a href="index.php">Main Menu</a>
-                <a href="inventory.php">View Inventory</a>
-                <a href="contact_us.php">Contact Us</a>
-            </div>
-            <div class="right">
-                <div id="clock" class="clock"></div>
-                <a href="logout.php">Logout</a>
-            </div>
+            <a href="login.php">Login</a>
+            <a href="mainmenu.php">Main Menu</a>
+            <a href="view_inventory.php">View Inventory</a>
+            <a href="contact_us.php">Contact Us</a>
+            <div id="clock" class="clock"></div>
         </div>
     </header>
 
@@ -158,7 +148,7 @@ if (!isset($_SESSION['username'])) {
             <p>Use the navigation menu to manage your inventory.</p>
         </div>
         <div class="button-overlay">
-            <a href="login.php">Get Started</a>
+            <a href="mainmenu.php">Get Started</a>
         </div>
     </div>
 
