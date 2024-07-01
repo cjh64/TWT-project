@@ -67,7 +67,7 @@
 <tr>
 	<td></td>
 	<td>Password:</td>
-	<td><input type="password" name="password"required></td>
+	<td><input type="password" name="password" placeholder="Enter your password" required></td>
 	<td></td>
 </tr>
 <tr>
