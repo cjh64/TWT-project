@@ -10,6 +10,9 @@ if (!isset($_SESSION['username'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<?php 
+    include ("topnav.php");
+    ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Menu</title>
@@ -20,12 +23,6 @@ if (!isset($_SESSION['username'])) {
             padding: 0;
         }
 
-        header {
-            background-color: black;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-        }
 
         .menubar {
             background-color: #ffffff;
@@ -108,39 +105,10 @@ if (!isset($_SESSION['username'])) {
             opacity: 0.7;
         }
     </style>
-    <script>
-        function updateClock() {
-            var now = new Date();
-            var hours = now.getHours();
-            var minutes = now.getMinutes();
-            var seconds = now.getSeconds();
-            var ampm = hours >= 12 ? 'PM' : 'AM';
-            hours = hours % 12;
-            hours = hours ? hours : 12; // the hour '0' should be '12'
-            minutes = minutes < 10 ? '0' + minutes : minutes;
-            seconds = seconds < 10 ? '0' + seconds : seconds;
-            var strTime = hours + ':' + minutes + ':' + seconds + ' ' + ampm;
-            document.getElementById('clock').innerHTML = strTime;
-        }
-        setInterval(updateClock, 1000);
-    </script>
+   
 </head>
 
 <body>
-    <header>
-        <h1>Pharmacy Inventory System</h1>
-        <div class="menubar">
-            <div class="left">
-                <a href="index.php">Main Menu</a>
-                <a href="inventory.php">View Inventory</a>
-                <a href="contact_us.php">Contact Us</a>
-            </div>
-            <div class="right">
-                <div id="clock" class="clock"></div>
-                <a href="logout.php">Logout</a>
-            </div>
-        </div>
-    </header>
 
     <div class="container">
         <img src="https://plus.unsplash.com/premium_photo-1682129923019-a2343cbcfddf?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="mainpage-image">
